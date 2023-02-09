@@ -1,0 +1,86 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Role {
+  id: Int!
+  role: String!
+}
+
+type User {
+  id: String!
+  firstName: String!
+  lastName: String!
+  email: String!
+  username: String!
+  roles: [Role!]
+}
+
+type Auth {
+  access_token: String!
+}
+
+type Query {
+  users: [User!]!
+  user(id: String!): User!
+  roles: [Role!]!
+  role(id: Int!): Role!
+}
+
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  updateUserRoles(updateUserRolesInput: UpdateUserRolesInput!): User!
+  removeMyUser: Boolean!
+  removeUser(deleteUserInput: DeleteUserInput!): Boolean!
+  login(loginForm: LoginFormInput!): Auth!
+  createRole(createRoleInput: CreateRoleInput!): Role!
+  updateRole(updateRoleInput: UpdateRoleInput!): Role!
+  removeRole(id: Int!): Boolean!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  username: String!
+  email: String!
+  password: String!
+  roles: [UpdateRoleInput!]!
+}
+
+input UpdateRoleInput {
+  role: String!
+  id: Int!
+}
+
+input UpdateUserInput {
+  firstName: String!
+  lastName: String!
+  username: String
+  email: String
+  password: String!
+  roles: [UpdateRoleInput!]
+}
+
+input UpdateUserRolesInput {
+  firstName: String
+  lastName: String
+  username: String
+  email: String
+  password: String
+  roles: [UpdateRoleInput!]!
+  id: String!
+}
+
+input DeleteUserInput {
+  username: String!
+}
+
+input LoginFormInput {
+  username: String!
+  password: String!
+}
+
+input CreateRoleInput {
+  role: String!
+}
