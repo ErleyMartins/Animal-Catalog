@@ -7,6 +7,12 @@ type Role {
   role: String!
 }
 
+type Specie {
+  id: Int!
+  name: String!
+  user: String!
+}
+
 type User {
   id: String!
   firstName: String!
@@ -14,6 +20,7 @@ type User {
   email: String!
   username: String!
   roles: [Role!]
+  species: [Specie!]
 }
 
 type Auth {
@@ -25,6 +32,8 @@ type Query {
   user(id: String!): User!
   roles: [Role!]!
   role(id: Int!): Role!
+  species: [Specie!]!
+  specie(id: Int!): Specie!
 }
 
 type Mutation {
@@ -37,6 +46,9 @@ type Mutation {
   createRole(createRoleInput: CreateRoleInput!): Role!
   updateRole(updateRoleInput: UpdateRoleInput!): Role!
   removeRole(id: Int!): Boolean!
+  createSpecie(createSpecieInput: CreateSpecieInput!): Specie!
+  updateSpecie(updateSpecieInput: UpdateSpecieInput!): Specie!
+  removeSpecie(id: Int!): Boolean!
 }
 
 input CreateUserInput {
@@ -83,4 +95,13 @@ input LoginFormInput {
 
 input CreateRoleInput {
   role: String!
+}
+
+input CreateSpecieInput {
+  name: String!
+}
+
+input UpdateSpecieInput {
+  name: String!
+  id: Int!
 }
