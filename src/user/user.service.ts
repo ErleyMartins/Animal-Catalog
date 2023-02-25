@@ -18,7 +18,7 @@ export class UserService {
   ) {}
 
   async create(createUserInput: CreateUserInput): Promise<User> {
-    if ((await this.findOne({ username: createUserInput.username })) !== null) {
+    if (await this.findOne({ username: createUserInput.username })) {
       throw new BadRequestException('User already exist');
     }
 

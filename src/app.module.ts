@@ -14,6 +14,7 @@ import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { configValidationSchema } from './config.schema';
 import { RoleModule } from './role/role.module';
 import { RolesGuard } from './auth/roles.guard';
+import { SpecieModule } from './specie/specie.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { RolesGuard } from './auth/roles.guard';
     UserModule,
     AuthModule,
     RoleModule,
+    SpecieModule,
   ],
   providers: [
     {

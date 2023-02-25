@@ -1,10 +1,12 @@
 import { ObjectType, Field } from '@nestjs/graphql';
 import { Role } from 'src/role/entities/role.entity';
+import { Specie } from 'src/specie/entities/specie.entity';
 import {
   Column,
   Entity,
   JoinTable,
   ManyToMany,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -38,4 +40,8 @@ export class User {
   @JoinTable()
   @Field(() => [Role], { nullable: true })
   roles?: Role[];
+
+  @OneToMany(() => Specie, (specie) => specie.user)
+  @Field(() => [Specie], { nullable: true })
+  species?: Specie[];
 }
