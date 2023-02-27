@@ -15,6 +15,7 @@ import { configValidationSchema } from './config.schema';
 import { RoleModule } from './role/role.module';
 import { RolesGuard } from './auth/roles.guard';
 import { SpecieModule } from './specie/specie.module';
+import { AnimalsModule } from './animals/animals.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { SpecieModule } from './specie/specie.module';
     AuthModule,
     RoleModule,
     SpecieModule,
+    AnimalsModule,
   ],
   providers: [
     {
